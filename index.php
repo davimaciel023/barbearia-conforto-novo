@@ -168,6 +168,5 @@
         <span class="tooltip-text">Agende seu horário</span>
     </a>
 
-    <script src="script.js"></script>
 </body>
 </html>

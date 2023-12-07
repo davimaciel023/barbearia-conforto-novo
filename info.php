@@ -68,43 +68,50 @@
 
     <section class="abount">
         <div class="container abount-content">
-            <div class="tabela">
+            <div class="abount-description">
+                <h2>Tabela de Cortes</h2>     
+            </div>
+                <div class="tabela">
 
-            <?php
-                $servidor = "localhost";
-                $usuario = "root";
-                $senha = "";
-                $banco = "barbearia";
+                    <?php
+                        $servidor = "localhost";
+                        $usuario = "root";
+                        $senha = "";
+                        $banco = "barbearia";
 
-                $conn = new mysqli($servidor, $usuario, $senha, $banco);
+                        $conn = new mysqli($servidor, $usuario, $senha, $banco);
 
-                $consulta = "SELECT * FROM `cortes`";
-                $resultado = $conn->query($consulta);
+                        $consulta = "SELECT * FROM `cortes`";
+                        $resultado = $conn->query($consulta);
 
-                if($resultado->num_rows > 0) {
+                        if($resultado->num_rows > 0) {
 
-                ?>
+                        ?>
 
                     <table border="1px solid" class="tbbarbearia">
+                    
+                    <?php
+                        while($row = $resultado->fetch_assoc()){
+                            echo "<tr>";
+                            echo "<td>".$row["nome"] ."</td>";
+                        }
+                
+                    ?>
+
+                    </div>
+
+                    </table>
+
+                    
+
+                    <?php
+                        }else {
+                            echo "0 itens";
+                        }
+                        $conn->close();
+                    ?>
+                
             
-            <?php
-                while($row = $resultado->fetch_assoc()){
-                    echo "<tr>";
-                    echo "<td>".$row["nome"] ."</td>";
-                }
-        
-            ?>
-
-            </div>
-
-            </table>
-
-            <?php
-                }else {
-                    echo "0 itens";
-                }
-                $conn->close();
-            ?>
 
         </div>
 
@@ -190,16 +197,68 @@
         </section>
     </section>
 
+    
+
+    <!-- FOOTER -->
+
+    <section class="abount">
+        <h1>Nossos barbeiros</h1>
+        <div class="container abount-content">
+            <div class="abount-description">
+                <img src="cortes/barbeiro-curso-online.png" alt="">     
+            </div>
+                <div class="tabela">
+
+                    <?php
+                        $servidor = "localhost";
+                        $usuario = "root";
+                        $senha = "";
+                        $banco = "barbearia";
+
+                        $conn = new mysqli($servidor, $usuario, $senha, $banco);
+
+                        $consulta = "SELECT * FROM `barbeiros`";
+                        $resultado = $conn->query($consulta);
+
+                        if($resultado->num_rows > 0) {
+
+                        ?>
+
+                    <table border="1px solid" class="tbbarbearia">
+                    
+                    <?php
+                        while($row = $resultado->fetch_assoc()){
+                            echo "<tr>";
+                            echo "<td>".$row["nome"] ."</td>";
+                        }
+                
+                    ?>
+
+                    </div>
+
+                    </table>
+
+                    
+
+                    <?php
+                        }else {
+                            echo "0 itens";
+                        }
+                        $conn->close();
+                    ?>
+                
+            
+
+        </div>
+
+
+    </section>
+
     <!-- FOOTER -->
 
     <div class="services">
         <h2>Conheça o que a dentro do nosso frigobar</h2>
     </div>
-
-
-    <script src="frigobar.js"></script>
-
-
     <div class="content abount-content color">
         <div class="img">
             <img src="assets/duplex-1536x1262.webp" alt="">

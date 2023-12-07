@@ -70,11 +70,12 @@
       font-size: 34px;
     }
     .header-logo img {
-      width: 160px;
+      width: 140px;
       margin-top: 46px;
     }
     .header-button {
-      display: none;
+        display: flex;
+        margin-top: 16px;
     }
 
   }
